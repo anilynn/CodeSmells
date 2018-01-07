@@ -24,9 +24,19 @@ public class DiamondExercises {
 
         str += addPart(numSpaces, " ");
         str += addPart(numStars, "*");
-        str += addPart(numSpaces, " ");
+        //Dispensable: Dead Code
 
         return str;
+    }
+
+    //Dispensable: Duplicate Code
+    private static void printLineOfTriagnle(int i, int numSpaces){
+    //print ith line of triangle or subtriangle
+
+        int currOdd = 2 * i - 1;
+        int sideSpaces = (numSpaces - currOdd) / 2;
+
+        System.out.println(makeLine(sideSpaces, currOdd));
     }
 
 //    Isosceles Triangle
@@ -39,14 +49,7 @@ public class DiamondExercises {
         int numSpaces = 2 * n - 1;
 
         for (int i = 1; i < n + 1; i++) {
-            int currOdd = 2 * i - 1;
-            int sideSpaces = (numSpaces - currOdd) / 2;
-            String triangle = "";
-
-            triangle += makeLine(sideSpaces, currOdd);
-
-            System.out.println(triangle);
-
+            printLineOfTriagnle(i, numSpaces);
         }
 
     }
@@ -64,13 +67,7 @@ public class DiamondExercises {
         int numSpaces = 2 * n - 1;
 
         for (int i = n - 1; i > -1; i--) {
-            int currOdd = 2 * i - 1;
-            int sideSpaces = (numSpaces - currOdd) / 2;
-            String triangle = "";
-
-            triangle += makeLine(sideSpaces, currOdd);
-
-            System.out.println(triangle);
+            printLineOfTriagnle(i, numSpaces);
 
         }
     }
@@ -88,13 +85,8 @@ public class DiamondExercises {
 
         // prints top half of diamond
         for (int i = 1; i < n; i++) {
-            int currOdd = 2 * i - 1;
-            int sideSpaces = (numSpaces - currOdd) / 2;
-            String triangle = "";
 
-            triangle += makeLine(sideSpaces, currOdd);
-
-            System.out.println(triangle);
+            printLineOfTriagnle(i, numSpaces);
         }
 
         // prints name
@@ -103,20 +95,13 @@ public class DiamondExercises {
 
         name += addPart(sideSpaces, " ");
         name += "Emily";
-        name += addPart(sideSpaces, " ");
-
+        //Dispensable: Dead Code
+        
         System.out.println(name);
 
         // prints bottom of diamond
         for (int i = n - 1; i > -1; i--) {
-            int currOdd = 2 * i - 1;
-            sideSpaces = (numSpaces - currOdd) / 2;
-            String triangle = "";
-
-            triangle += makeLine(sideSpaces, currOdd);
-
-            System.out.println(triangle);
-
+            printLineOfTriagnle(i, numSpaces);
         }
     }
 }

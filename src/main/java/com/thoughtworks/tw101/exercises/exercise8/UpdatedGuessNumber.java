@@ -35,23 +35,33 @@ public class UpdatedGuessNumber {
 
     public void checkNumber() {
         // This function checks to see if the user guessed the right number
+
         if (userGuess == actualNum) {
             System.out.printf("You win! The correct number was %d.%n", actualNum);
             keepPlaying = false;
             reader.close();
 
+            /* Bloater: Long Method
             String allGuesses = "";
             for (int guess : guesses) {
                 allGuesses += guess + " ";
             }
 
             System.out.printf("All your guesses: %s%n", allGuesses);
+            */
+            System.out.printf("All your guesses: %s%n", guesses);  //Bloater refactored
         }
-        else if (userGuess < actualNum) {
+
+        /* Dispensable: Duplicate Code
+       else if (userGuess < actualNum) {
+
             System.out.printf("The number you guessed (%d) is too low.%n%n", userGuess);
         }
+        */
         else {
-            System.out.printf("The number you guessed (%d) is too high.%n%n", userGuess);
+            String limit = (userGuess < actualNum)? "low" : "high";
+            System.out.printf("The number you guessed (%d) is too %s.%n%n", userGuess, limit);
         }
+
     }
 }
